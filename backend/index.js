@@ -4,7 +4,7 @@ import express from  "express";
 import cookieParser from  "cookie-parser";
 import userRoutes from './routes/userRoutes.js';
 import cors from 'cors'
-
+import categoryRoutes from './routes/categoryRoutes.js'
 connectdb();
 
 
@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use('/api/users',userRoutes);
-
+app.use('/api/category',categoryRoutes)
 app.get("/", (req, res) => {
   res.send("Hello world!");
 });
