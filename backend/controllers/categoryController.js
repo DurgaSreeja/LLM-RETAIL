@@ -8,21 +8,20 @@ const createCategory=asyncHandler(async(req,res)=>{
             return res.json({error:"Name is Required"})
         }
         const existCategory=await Category.findOne({name})
-        if(existCategory) return res.json({message:"Category already exist"});
+        if(existCategory) {res.status(400).json({message:"Category already exist"});return ;}
 
         const category=await new Category({name}).save();
         res.json(category);
 
     } catch (error) {
-        return res.status(400).json(error)
+        return res.status(500).json(error)
     }
 });
 
 const updateCategory=asyncHandler(async(req,res)=>{
     try {
         const {name}=req.body;
-        const {Id}=req.params;
-        const category=await Category.findOne({_id:Id})
+        const category=await Category.findOne({_id:req.params.cId})
         if(!category){
             return res.status(404).json({message:"Not found"})
         }
@@ -37,7 +36,7 @@ const updateCategory=asyncHandler(async(req,res)=>{
 
 const removeCategory=asyncHandler(async(req,res)=>{
     try {
-        const {Id}=req.params
+        const Id=req.params.cId
         const category=await Category.findOne({_id:Id})
         if(!category){
             return res.status(404).json({message:"Not found"})

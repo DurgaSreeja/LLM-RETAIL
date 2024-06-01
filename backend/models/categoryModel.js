@@ -1,4 +1,3 @@
-import { unique } from "@tensorflow/tfjs";
 import mongoose from "mongoose";
 
 const categorySchema= new mongoose.Schema({
