@@ -46,7 +46,7 @@ const Register = () => {
     await axios.post("http://localhost:5000/api/users/createUser", data)
     .then((res) => {
         let { _id, username, email, isAdmin} = res.data;
-        Cookies.set('jwt', res.data.token);
+        Cookies.set('jwt', res.data.token,{expires:30});
         const data={ _id, username, email, isAdmin }
        localStorage.setItem('userData', JSON.stringify(data));
        dispatch(setCredentials(data))

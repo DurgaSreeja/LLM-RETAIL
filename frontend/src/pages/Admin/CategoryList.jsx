@@ -99,6 +99,7 @@ const CategoryList = () => {
           }
         );
         toast.success(`${selectCategory.name} is Deleted`);
+        setCategories(categories.filter(val => val._id !== selectCategory._id ));
         setSelectCategory(null);
         setModal(false);
 

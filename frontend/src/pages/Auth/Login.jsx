@@ -42,7 +42,7 @@ const Login = () => {
       const response = await axios.post("http://localhost:5000/api/users/auth", data);
       const { _id, username, email, isAdmin, token } = response.data;
       dispatch(setCredentials({ _id, username, email, isAdmin}));
-      Cookies.set('jwt',token)
+      Cookies.set('jwt',token,{expires: 30})
       navigate('/home');
     } catch (e) {
       toast.error("Incorrect Email or Password");

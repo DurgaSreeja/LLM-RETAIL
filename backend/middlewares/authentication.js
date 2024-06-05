@@ -5,7 +5,7 @@ import asyncHandler from './asyncHandler.js'
 const authenticate=asyncHandler(async(req,res,next)=>{
     let token;
 
-    token=req.headers.authorization;
+    token=req.headers.authorization ;
     
     if(token){
         try {
