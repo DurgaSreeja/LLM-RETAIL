@@ -23,7 +23,7 @@ const addProduct = asyncHandler(async (req, res) => {
     await product.save();
     res.json(product);
   } catch (error) {
-    console.error(error.message);
+    console.error(error.message );
     res.status(400).json(error.message);
   }
 });

@@ -10,10 +10,11 @@ import {
 const router = express.Router();
 
 router.route("/").post(authenticate, authorise, createCategory);
+router.route("/categories").get(listCategory);
 router
   .route("/:cId")
   .put(authenticate, authorise, updateCategory)
   .delete(authenticate, authorise, removeCategory)
   .get(readCategory);
-router.route("/categories").get(listCategory);
+
 export default router;
