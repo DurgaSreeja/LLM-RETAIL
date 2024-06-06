@@ -85,7 +85,7 @@ const ProductList = () => {
     <div className="container xl:mx-[9rem] sm:mx-[0]">
       <div className="flex flex-col md:flex-row">
         <div className="md:w-3/4 p-3">
-          <div className="h-12">Create Product</div>
+          <div className="h-12 text-white">Create Product</div>
 
           {imageUrl && (
             <div className="text-center">
